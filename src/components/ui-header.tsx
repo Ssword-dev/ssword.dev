@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Navbar, { NavLink } from "./navbar";
-
+import { Moon } from "lucide-react";
 export default function Header() {
   const [items, _] = useState<NavLink[]>(() => [
     {
@@ -32,7 +32,7 @@ export default function Header() {
   ]);
   return (
     <>
-      <Navbar items={items} siteName="ssword.dev" />
+      <Navbar items={items} siteName="ssword.dev" siteIcon={Moon} />
     </>
   );
 }

@@ -1,0 +1,12 @@
+{
+  "THEME_SECRET": "ArrowUpArrowDownArrowDownArrowLeftArrowRightArrowUp",
+  "themes": [
+    { "label": "O Wanderers of the Land", "value": "o-wanderers-of-the-land" },
+    { "label": "O Wanderers of the Sea", "value": "o-wanderers-of-the-sea" },
+    { "label": "O Wanderers of the Sky", "value": "o-wanderers-of-the-sky" },
+    { "label": "O Hero of the North", "value": "o-hero-of-the-north" }
+  ],
+  "keyListener": {
+    "allowedKeys": "[a-zA-Z0-9]|(ArrowUp|ArrowDown|ArrowRight|ArrowLeft)"
+  }
+}

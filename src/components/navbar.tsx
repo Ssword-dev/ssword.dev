@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { ThemeSelect } from "./theme-select";
 
 interface NavLink {
   route?: boolean;
@@ -30,6 +31,7 @@ const NavItem: React.FC<NavLink> = ({ href, contents, route = true }) => {
 interface NavbarProps {
   items: NavLink[];
   siteName: string;
+  siteIcon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const Navitems: React.FC<NavbarProps> = (props) => {
@@ -42,38 +44,41 @@ const Navitems: React.FC<NavbarProps> = (props) => {
   }, [currentRoute, routes]);
   if (props.items.length > 3) {
     return (
-      <select
-        name="nav-link-selection"
-        defaultValue={defaultOption}
-        className="rounded bg-white px-3 py-2 text-black dark:bg-black dark:text-white"
-        onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-          const selectedItem = props.items.find(
-            (item) => item.contents === e.target.value && item.route,
-          );
-          if (selectedItem) {
-            if (selectedItem.route) {
-              router.push(selectedItem.href);
-            } else {
-              window.location.href = selectedItem.href;
+      <>
+        {" "}
+        <select
+          name="nav-link-selection"
+          defaultValue={defaultOption}
+          className="bg-primary text-primary rounded px-3 py-2"
+          onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+            const selectedItem = props.items.find(
+              (item) => item.contents === e.target.value && item.route,
+            );
+            if (selectedItem) {
+              if (selectedItem.route) {
+                router.push(selectedItem.href);
+              } else {
+                window.location.href = selectedItem.href;
+              }
             }
-          }
-        }}
-      >
-        <optgroup label="Routes">
-          {routes.map((val, idx) => (
-            <option value={val.contents} key={idx}>
-              {val.contents}
-            </option>
-          ))}
-        </optgroup>
-        <optgroup label="Links">
-          {links.map((val, idx) => (
-            <option value={val.contents} key={idx}>
-              {val.contents}
-            </option>
-          ))}
-        </optgroup>
-      </select>
+          }}
+        >
+          <optgroup label="Routes">
+            {routes.map((val, idx) => (
+              <option value={val.contents} key={idx}>
+                {val.contents}
+              </option>
+            ))}
+          </optgroup>
+          <optgroup label="Links">
+            {links.map((val, idx) => (
+              <option value={val.contents} key={idx}>
+                {val.contents}
+              </option>
+            ))}
+          </optgroup>
+        </select>
+      </>
     );
   }
   return (
@@ -87,12 +92,15 @@ const Navitems: React.FC<NavbarProps> = (props) => {
   );
 };
 const Navbar: React.FC<NavbarProps> = (props) => {
+  const Icon = props.siteIcon;
   return (
-    <nav className="sticky top-0 z-[1000] flex w-full items-center justify-between bg-white px-6 py-4 backdrop-blur-[7px] transition-colors duration-300 dark:bg-black">
-      <div className="text-xl font-bold text-black dark:text-white">
+    <nav className="thematic glass sticky top-0 z-[1000] flex w-full items-center justify-between px-6 py-4">
+      <div className="text-invert text-tertiary flex items-center gap-2 text-xl font-bold">
+        <Icon className="text-secondary" />
         {props.siteName}
       </div>
       <Navitems {...props} />
+      {/** Tertiary are less likely to conflict with the ui */}
     </nav>
   );
 };

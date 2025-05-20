@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import "@/styles/globals.scss";
+import "./globals.css";
+import thematicPreloads from "@/components/agents/preload.json";
 import Header from "@/components/ui-header";
+import {
+  ThematicAgent,
+  ThematicAgentProvider,
+} from "@/components/agents/thematic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +22,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ssword",
   description: "An author's homepage",
+  icons: {
+    icon: [
+      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -26,11 +39,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head></head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-primary antialiased`}
       >
-        <Header />
-        {children}
+        <ThematicAgentProvider>
+          <ThematicAgent
+            usernameProperty={"userName"}
+            user={{ userName: "local" }}
+          />
+          <Header />
+          {children}
+        </ThematicAgentProvider>
       </body>
     </html>
   );

@@ -5,19 +5,17 @@ export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
       <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
-        <div className="flex aspect-[10/8] min-w-[280px] flex-col items-center justify-center self-center rounded-xl bg-white/80 p-8 shadow-lg lg:aspect-[12/8] dark:bg-black/40">
-          <h1 className="mb-2 text-2xl font-bold">Welcome to ssword.dev</h1>
-          <p className="text-center text-gray-600 dark:text-gray-300">
+        <div className="bg-primary flex aspect-[10/8] min-w-[280px] flex-col items-center justify-center self-center rounded-xl p-8 shadow-lg lg:aspect-[12/8]">
+          <h1 className="font-bold-style text-primary mb-2 text-2xl">
+            Welcome to ssword.dev
+          </h1>
+          <p className="text-secondary text-center">
             Here you will get to know who ssword is.
             <br />
             maybe you came here for documentations? click the nav bar
             <br />
             or click this{" "}
-            <Link
-              prefetch
-              href="/packages"
-              className="text-blue-300 dark:text-yellow-300"
-            >
+            <Link prefetch href="/packages" className="text-primary">
               link
             </Link>{" "}
             to
