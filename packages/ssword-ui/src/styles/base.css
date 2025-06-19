@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    /** Flex for easier layout design */
+    display: flex;
+    /** Always make sure direct children of body goes from up to bottom */
+    flex-direction: column;
+    /** Clamp height */
+    min-height: 100vh;
+    /** Always take up the entire width the browser lets us to */
+    width: 100vw;
+    /** Hide clippings, and disable scroll through x */
+    overflow-x: hidden;
+    /** Enable scrolling the body vertically */
+    overflow-y: scroll;
+    /** Remove margin-and-padding-on-the-body weirdness */
+    margin: 0;
+    padding: 0;
+  }
+}

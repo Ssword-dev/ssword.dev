@@ -1,0 +1,12 @@
+{
+  "word-wrap": true, // Apply word wrap to the generated jsx files
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "printWidth": 80,
+    "parser": "babel"
+  },
+  "theme": "github-dark" // The theme source_code executable will tell shiki to use
+}

@@ -1,41 +1,107 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# the site itself
+.next/
+out/
+node_modules/
+tsconfig.tsbuildinfo
+next-env.d.ts
+.env*
+coverage/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# dependencies
-/node_modules
+# the thing my mdx compiler tool generates, it logs the ast
+# normally it would be too big to even fit
+# to git's file limits
+# because of the docs/ size
+# for those who are reading this gitignore
+# this is for developing this site's /docs pages
+# (yes, they are all in .mdx as i dont want to manually add)
+# docs by hand
+# yes, it is compiled and static
+.mdxbuildinfo
+
+# ignore global deps if someone accidentally installs here
+/node_modules/
 /.pnp
 .pnp.*
+
+# yarn workspaces
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+# lockfiles (only if you're not committing them across packages)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
+# environment variables & sensitive info
 .env*
+*.pem
+*.local.*
+**/SECRETS.txt
 
-# vercel
-.vercel
+# coverage (if tests output here)
+coverage/
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# debug logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/.pnpm-debug.log*
+
+# os junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+
+# editor junk
+.vscode/*
+!.vscode/settings.json
+.idea/
+
+# vercel deployment files
+.vercel/
+
+# packages/  -- all things we publish
+
+# node / ts
+packages/**/node_modules/
+packages/**/dist/
+packages/**/build/
+packages/**/lib/
+packages/**/coverage/
+packages/**/tsconfig.tsbuildinfo
+packages/**/.tsbuildinfo
+
+# dart
+packages/**/.dart_tool/
+packages/**/.packages
+packages/**/.flutter-plugins*
+packages/**/.metadata
+packages/**/pubspec.lock
+packages/**/build/
+
+# python
+packages/**/__pycache__/
+packages/**/*.py[cod]
+packages/**/.mypy_cache/
+packages/**/.pytest_cache/
+packages/**/.tox/
+packages/**/dist/
+packages/**/.venv/
+packages/**/env/
+packages/**/venv/
+packages/**/pip-log.txt
+packages/**/pip-delete-this-directory.txt
+
+# instead of listing all "private/local" files
+# we can prepend a .local to their extension
+# e.g. .buildconfig.json would be .buildconfig.local.json
+
+*.local.*

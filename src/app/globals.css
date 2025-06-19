@@ -1,2 +1,4 @@
 @import "tailwindcss";
-@import "../styles/tailwind/plugin/thematic.css";
+@import "tw-animate-css";
+@import "@ssword/ui/styles/index.css"; /** Include our styles */
+@import "@ssword/ui/styles/typography.css";

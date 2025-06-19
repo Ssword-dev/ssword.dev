@@ -1,0 +1,185 @@
+/* importing TailwindCSS for utility-first styling and base configurations */
+@import "tailwindcss";
+@import "./index.css";
+/**
+Typography
+
+Brief Description:
+This file is a tailwind css stylesheet that defines
+base level typography.
+
+Long Description:
+This file defines the base level typography using
+semantics such as semantic explicit inclusion and exclusion attribute,
+explicit element level declaration attribute
+
+Semantics:
+...{html-inline-elements}, *[data-explicit-level="inline"] -> inline
+...{html-block-elements}, *[data-explicit-level="block"] -> block
+a, *[data-explicit-link] -> link
+Notes:
+  if data-explicit-level is inline or block, then the styles
+for the other element level is not applied (base).
+
+  if data-explicit-level is not inline or block, no base style will apply.
+
+  if a `code` element has an attribute data-explicit-code-exclusion, the
+base style for <code> will not apply to it.
+
+  if an `a` element (anchor tag) has an attribute data-explicit-link-exclusion,
+the base style for <a> will not apply
+
+  if an element has one of these attributes:
+    data-explicit-code
+    data-explicit-link
+then the element will receive the corresponding base style for the selector,
+unless an exclusion attribute is present.
+
+Final notes:
+Please do not use an explicit inclusion and an explicit exclusion of the same type together,
+as it semantically... does not make sense... unless you have a component you dont control that uses explicit
+inclusion, at which you could use explicit exclusion to cancel out the inclusion
+*/
+@theme ssword-ui-typography {
+  --font-ye-olde-english-head: "IM Fell English SC", serif;
+  --font-ye-olde-english-body: "Cormorant Upright", serif;
+  --font-modern-head: "Geist", sans-serif;
+  --font-modern-body: "Geist", sans-serif;
+  --font-base: sans-serif; /** Base fonts for block-level elements are set to sans-serif for better readability and accessibility, as sans-serif fonts are generally easier to read in larger blocks of text. */
+  --font-base: sans-serif; /** Base fonts for block level elements */
+  --direction-t: to top;
+  --direction-b: to bottom;
+  --direction-l: to left;
+  --direction-r: to right;
+  --direction-tr: to bottom right;
+  --direction-tl: to bottom left;
+  --direction-br: to bottom right;
+  --direction-bl: to bottom left;
+}
+
+:where(
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+/** div, */ /** This is a placeholder for future consideration if div becomes a text-level element. Uncomment if needed. */
+span,
+p,
+a,
+abbr,
+b,
+bdi,
+bdo,
+br,
+cite,
+code,
+data,
+dfn,
+em,
+i,
+kbd,
+mark,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+small,
+strong,
+sub,
+sup,
+time,
+u,
+var,
+[data-explicit-level="inline"]
+):not([data-explicit-level="block"]) {
+  font-family: var(--font-head, sans-serif);
+}
+
+:where(
+    address,
+    article,
+    aside,
+    blockquote,
+    details,
+    dialog,
+    dd,
+    div,
+    dl,
+    dt,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    header,
+    hgroup,
+    li,
+    main,
+    nav,
+    ol,
+    pre,
+    section,
+    table,
+    ul,
+    [data-explicit-level="block"]
+  ):not([data-explicit-level="inline"]) {
+  font-family: var(--font-base, sans-serif);
+}
+
+code:not([data-explicit-code-exclusion]),
+[data-explicit-code]:not([data-explicit-code-exclusion]) {
+  font-family: var(--font-code, monospace);
+}
+
+:where(a, [data-explicit-link])
+  :not([data-explicit-link-exclusion])
+  :where(:hover, :focus-within) {
+  color: var(--color-accent, calc(initial * 120%));
+}
+
+html[data-theme="modern"] {
+  --font-head: var(--font-modern-head);
+  --font-body: var(--font-modern-body);
+  --font-code: var(--font-modern-code);
+}
+
+html[data-theme="ye-olde-english"] {
+  --font-head: var(--font-ye-olde-english-head);
+  --font-body: var(--font-ye-olde-english-body);
+  --font-code: var(--font-modern-code);
+}
+
+/**
+Material Typography
+*/
+
+@property --gradient-direction {
+  syntax: "<angle> | to left | to right | to top | to bottom | to top left | to top right | to bottom left | to bottom right";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@utility gradient-direction-* {
+  --gradient-direction: --value(--direction- *);
+}
+
+@utility gradient-direction-degree-* {
+  --gradient-direction: --value(integer, [integer]) * 1deg;
+}
+
+@utility text-gradient-linear {
+  background: linear-gradient(
+    var(--gradient-direction),
+    var(--tw-gradient-from),
+    var(--tw-gradient-via),
+    var(--tw-gradient-to)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,58 @@
+@use "sass:map";
+
+// ye-olde-english
+$ye-olde-english: (
+  light: (primary-bg: #fff,
+    secondary-bg: #eee,
+    tertiary-bg: #ddd,
+    color-accent: #aaa,
+    // background highlight, a little bit grey-ish for old feel
+    primary-fg: #000,
+    secondary-fg: #111,
+    tertiary-fg: #222,
+  ),
+  dark: (primary-bg: #181818,
+    secondary-bg: #232323,
+    tertiary-bg: #2c2c2c,
+    color-accent: #888,
+    primary-fg: #f5f5f5,
+    secondary-fg: #e0e0e0,
+    tertiary-fg: #cccccc,
+  ),
+  high-contrast: (primary-bg: #000,
+    secondary-bg: #1a1a1a,
+    tertiary-bg: #333,
+    color-accent: #ffd700,
+    primary-fg: #fff,
+    secondary-fg: #ff0,
+    tertiary-fg: #0ff,
+  )
+);
+
+$modern: (
+  light: (primary-bg: #fff,
+    secondary-bg: #eee,
+    tertiary-bg: #ddd,
+    color-accent: #aaa,
+    // background highlight, a little bit grey-ish for old feel
+    primary-fg: #000,
+    secondary-fg: #111,
+    tertiary-fg: #222,
+  ),
+  dark: (primary-bg: #111,
+    secondary-bg: #18181b,
+    tertiary-bg: #232329,
+    color-accent: #fff,
+    primary-fg: #fff,
+    secondary-fg: #eaeaea,
+    tertiary-fg: #999,
+  ),
+  high-contrast: (primary-bg: #000,
+    secondary-bg: #222,
+    tertiary-bg: #333,
+    color-accent: #fff,
+    primary-fg: #fff,
+    secondary-fg: #fff700,
+    tertiary-fg: #00ffe7,
+  )
+);

@@ -1,0 +1,287 @@
+/**
+ This file contains css properties managed by the thematic system.
+ */
+
+/**
+ You can override it using the exposed tailwind utilities.
+*/
+@property --primary-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --primary-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1a202c;
+}
+
+@property --secondary-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2d3748;
+}
+
+@property --secondary-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #edf2f7;
+}
+
+@property --tertiary-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #4a5568;
+}
+
+@property --tertiary-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7fafc;
+}
+
+@property --base-text-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --base-container-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1rem;
+}
+
+@property --text-style-bold {
+  syntax: "<ident>";
+  inherits: true;
+  initial-value: bold;
+}
+
+@property --text-style-italic {
+  syntax: "<ident>";
+  inherits: true;
+  initial-value: italic;
+}
+
+@property --color-destructive {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ff0f00;
+}
+
+@property --color-destructive-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff /** White */;
+}
+
+@property --color-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #007bff /** Blue */;
+}
+
+@property --color-accent-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff /** White */;
+}
+
+@property --color-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #808080 /** Gray */;
+}
+
+@property --color-muted-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff /** White */;
+}
+
+@property --card {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: white;
+}
+
+@property --card-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
+}
+
+@property --popover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: white;
+}
+
+@property --popover-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
+}
+
+@property --border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0 0% 90%);
+}
+
+@property --input {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0 0% 90%);
+}
+
+@property --ring {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(217.2 91.2% 59.8%);
+}
+
+@property --chart-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(0.646 0.222 41.116);
+}
+
+@property --chart-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(0.6 0.118 184.704);
+}
+
+@property --chart-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(0.398 0.07 227.392);
+}
+
+@property --chart-4 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(0.828 0.189 84.429);
+}
+
+@property --chart-5 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(0.769 0.188 70.08);
+}
+
+@property --radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.625rem;
+}
+
+@property --sidebar {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0 0% 98%);
+}
+
+@property --sidebar-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(240 5.3% 26.1%);
+}
+
+@property --sidebar-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(240 5.9% 10%);
+}
+
+@property --sidebar-primary-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(0 0% 98%);
+}
+
+@property --sidebar-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(240 4.8% 95.9%);
+}
+
+@property --sidebar-accent-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(240 5.9% 10%);
+}
+
+@property --sidebar-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(220 13% 91%);
+}
+
+@property --sidebar-ring {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: hsl(217.2 91.2% 59.8%);
+}
+
+/** Tailwind theme declaration sooooo we can use our colors in tailwind */
+
+@theme inline {
+  /**
+   These are the colors that you can use in the thematic system.
+   i am sure you are not going to be able to run out of colors.
+   unless you want a rainbow.
+   but then again, too much colors is not a good thing
+   for the client.
+   so use them wisely.
+
+   Also, these serves as defaults, so if you ever want to not
+   define a variable, the default will be used instead.
+  */
+  --color-foreground: var(--primary-fg);
+  --color-background: var(--primary-bg);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-bg: var(--primary-bg);
+  --color-secondary-fg: var(--secondary-fg);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-tertiary-fg: var(--tertiary-fg);
+  --color-tertiary-bg: var(--tertiary-bg);
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --text-base-size: var(--base-text-size);
+  --container-base-size: var(--base-container-size);
+  --font-weight-bold: var(--text-style-bold);
+  --text-style-italic: var(--text-style-italic);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}

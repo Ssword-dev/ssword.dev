@@ -1,4 +1,4 @@
-import { FlexFrame } from "@/components/frames";
+import { Frame } from "@ssword/ui/client";
 
 /**
  * A lazy way to tell our clients that this page doesnt exists
@@ -7,7 +7,7 @@ import { FlexFrame } from "@/components/frames";
 export default function NotImplementedPage() {
   return (
     <main className="scrollbar:disable flex w-screen flex-col items-center justify-center gap-3 overflow-x-hidden lg:flex-row">
-      <FlexFrame className="max-w-screen min-w-0 flex-col items-center justify-center lg:flex-row">
+      <Frame className="max-w-screen min-w-0 flex-col items-center justify-center lg:flex-row">
         {/* Page under construction */}
         <div className="flex flex-1 flex-col items-center justify-center py-20">
           <span className="text-3xl font-bold text-gray-400">
@@ -17,7 +17,7 @@ export default function NotImplementedPage() {
             Check back soon for updates!
           </p>
         </div>
-      </FlexFrame>
+      </Frame>
     </main>
   );
 }

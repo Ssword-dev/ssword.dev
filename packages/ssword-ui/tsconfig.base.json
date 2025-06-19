@@ -1,0 +1,38 @@
+{
+  "$$$developer-remarks": [
+    "Please Do Not put Comments in here, i am requiring this at jest config... will fix later"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "target": "es6",
+    "lib": [
+      "DOM",
+      "ES6",
+      "ES2023"
+    ],
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "emitDeclarationOnly": false,
+    "declarationDir": "./dist/types",
+    "rootDir": "src",
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "isolatedModules": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+  }
+}

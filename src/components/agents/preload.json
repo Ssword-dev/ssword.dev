@@ -1,3 +1,0 @@
-{
-  "thematic": "(function () {\n  document.addEventListener(\"DOMContentLoaded\", function () {\n    const theme = localStorage.getItem(\"theme\") || \"default\";\n    document.body.classList.add('theme-' + theme);\n  });\n})();"
-}

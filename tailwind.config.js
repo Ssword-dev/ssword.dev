@@ -1,20 +1,18 @@
-const thematic = require("./plugins/tailwind/thematic.js");
+import tsh from "tailwind-scrollbar-hide";
+import ssword_ui_preset from "@ssword/ui/tw-preset";
 /**
  * @type {import("tailwindcss").Config}
  */
 
-module.exports = {
+export default {
+  presets: [ssword_ui_preset],
   content: ["./src/app/**/*.{js,ts}x?"],
   theme: {
     extend: {
-      colors: {
-        ...thematic.colors,
-      },
-      fontSize: {
-        ...thematic.fontSize,
-      },
+      colors: {},
+      fontSize: {},
     },
   },
-  plugins: [require("tailwind-scrollbar-hide"), thematic.plugin],
+  plugins: [tsh],
   safelist: [],
 };

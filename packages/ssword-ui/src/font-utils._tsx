@@ -1,0 +1,23 @@
+interface FontGroupObject {
+  name: string;
+  heading?: string;
+  body?: string;
+  footer?: string;
+  aside?: string;
+  default: string;
+}
+
+const Fonts = {
+  YeOldeEnglish: {
+    name: "YeOldeEnglish",
+    heading: "IM Fell English SC",
+    body: "Cormorant Upright",
+    default: "Cormorant Upright",
+  },
+};
+
+export { Fonts };
+export type { FontGroupObject };
+
+// NOTE: This file is removed for compilation due to errors and complexity
+// (Fonts being null). Will restore soon

@@ -1,0 +1,38 @@
+/** For thematic components, thematic can mean 2 things */
+/** 1. The set of css components that can be called using the `thematic` class */
+/* 2. The thematic theme system, which allows you to define 'themes' as a map
+ * of css variables/custom properties.
+*/
+
+/**
+You can use both at the same time but they are not really related.
+*/
+@property --thematic-glass-exaggeration {
+  syntax: "<length>";
+  initial-value: 7px /** moderate */;
+  inherits: false /** inline */;
+}
+
+@layer components {
+  .thematic {
+    /** class namespace */
+    &.glass {
+      backdrop-filter: blur(--thematic-glass-exaggeration);
+      background-color: transparent;
+      &.glass-exaggeration-mild {
+        --thematic-glass-exaggeration: 4px;
+      }
+      &.glass-exaggeration-moderate {
+        --thematic-glass-exaggeration: 7px;
+      }
+
+      &.glass-exaggeration-strong {
+        --thematic-glass-exaggeration: 11px;
+      }
+    }
+
+    &.inverted {
+      mix-blend-mode: difference;
+    }
+  }
+}

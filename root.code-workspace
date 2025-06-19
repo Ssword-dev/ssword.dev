@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "name": "main",
+      "path": ".",
+      "uri": "file:///${workspaceFolder}",
+    },
+    {
+      "name": "ssword-ui",
+      "path": "packages/ssword-ui"
+    },
+    {
+      "name": "template",
+      "path": "packages/template"
+    }
+  ],
+  "settings": {}
+}

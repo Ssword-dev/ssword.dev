@@ -1,0 +1,21 @@
+{
+  "obfuscate": {
+    "builtins": true,
+    "regex": "^__[a-zA-Z_][a-zA-Z0-9_]*"
+  },
+  "externals": [
+    {
+      "standalone": true,
+      "regex": "^@radix-ui/"
+    },
+    {
+      "regex": "^(react|react-dom)$"
+    },
+    {
+      "regex": "^next"
+    },
+    {
+      "regex": "^framer-motion$"
+    }
+  ]
+}

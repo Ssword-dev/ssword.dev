@@ -1,0 +1,18 @@
+.settings-container {
+  min-width: calc(320px - 2rem);
+  max-width: calc(1024px - 4rem);
+  width: calc(100vw - 4rem); /** Screen responsive */
+}
+
+.settings-aside {
+  // Add resize
+  min-width: 12rem;
+  max-height: 24rem;
+  resize: horizontal;
+  overflow-y: auto;
+}
+
+.settings-current-page {
+  word-wrap: break-word;
+  width: 100%; /** This makes it so that it resizes alongside settings-aside */
+}

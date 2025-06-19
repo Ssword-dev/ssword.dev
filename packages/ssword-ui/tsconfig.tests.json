@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "jest"
+    ],
+    "rootDir": ".",
+    "isolatedModules": true
+  },
+  "include": [
+    "src/",
+    "tests/",
+    "jest.config.ts",
+    "jest.globalSetup.ts",
+    "jest.setup.ts",
+    "globals.d.ts",
+    "./*.json"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+  ]
+}

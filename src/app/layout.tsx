@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  IM_Fell_English_SC,
+  Cormorant_Upright,
+} from "next/font/google";
 import "@/styles/globals.scss";
 import "./globals.css";
-import thematicPreloads from "@/components/agents/preload.json";
-import Header from "@/components/ui-header";
+
 import {
+  Rework,
   ThematicAgent,
   ThematicAgentProvider,
-} from "@/components/agents/thematic";
+} from "@ssword/ui/client";
+import { SiteLayout } from "@/components/pages/site-components";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +25,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const yeOldeEnglishHead = IM_Fell_English_SC({
+  variable: "--font-ye-old-english-head",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const yeOldeEnglish = Cormorant_Upright({
+  variable: "--font-ye-old-english",
+  subsets: ["latin"],
+  weight: "400",
+});
 export const metadata: Metadata = {
   title: "Ssword",
   description: "An author's homepage",
@@ -41,15 +58,16 @@ export default function RootLayout({
     <html lang="en">
       <head></head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-primary antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${yeOldeEnglishHead.variable} ${yeOldeEnglish.variable} bg-primary antialiased`}
       >
         <ThematicAgentProvider>
           <ThematicAgent
             usernameProperty={"userName"}
             user={{ userName: "local" }}
           />
-          <Header />
-          {children}
+          {/** Reworks */}
+          <Rework data-link-disabled={true} />
+          <SiteLayout>{children}</SiteLayout>
         </ThematicAgentProvider>
       </body>
     </html>

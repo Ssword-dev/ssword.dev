@@ -45,6 +45,8 @@ module.exports = {
       ".italic-style": {
         "font-style": "var(--text-style-italic)",
       },
+      ".bg-transparent": { backgroundColor: "transparent" },
+      ".text-invert": { mixBlendMode: "difference" },
       ...textUtilities,
       ...bgUtilities,
     });

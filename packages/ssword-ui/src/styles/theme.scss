@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "sass:meta";
+
+
+@media (prefers-contrast: more) {}
+
+@media (prefers-reduced-motion) {
+  :root {
+    // uses a kinda slanted version of italic
+    --text-style-italic: oblique;
+  }
+}
+
+// Utility function
+@function is-map($value) {
+  @return meta.type-of($value)=="map";
+}
+
+// Theme mixin
+// the goal here is to eliminate the
+// need of the user to change themes
+// like, if they prefer light (or no preference)
+// we will give them a color scheme
+// for it, but if they like dark themes,
+// we will give theme the color scheme
+// defined as "dark" version of the theme
+// if they like high contrast, we will give them
+// the version "high-contrast"
+// it will load all themes at once
+// if you declared it all at once
+@mixin Theme($name, $styles) {
+  @if map.has-key($styles, light) {
+
+    @media (prefers-color-scheme: light),
+    (prefers-color-scheme: no-preference) {
+      html[data-theme="#{$name}"] {
+        @each $key, $val in map.get($styles, light) {
+          --#{$key}: #{$val};
+        }
+      }
+    }
+  }
+
+  @if map.has-key($styles, dark) {
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="#{$name}"] {
+        @each $key, $val in map.get($styles, dark) {
+          --#{$key}: #{$val};
+        }
+      }
+    }
+  }
+
+  @if map.has-key($styles, high-contrast) {
+    @media (prefers-contrast: more) {
+      html[data-theme="#{$name}"] {
+        @each $key, $val in map.get($styles, high-contrast) {
+          --#{$key}: #{$val};
+        }
+      }
+    }
+  }
+
+  @if map.has-key($styles, high-contrast-dark) {
+    @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+      html[data-theme="#{$name}"] {
+        @each $key, $val in map.get($styles, high-contrast-dark) {
+          --#{$key}: #{$val};
+        }
+      }
+    }
+  }
+}
+
+@mixin ThemeMap($themes) {
+  @each $key, $styles in $themes {
+    @include Theme($key, $styles);
+  }
+}

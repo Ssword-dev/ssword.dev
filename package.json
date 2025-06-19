@@ -2,26 +2,40 @@
   "name": "ssword_homepage",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "build:data": "source_code data src/data"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.3",
+    "@mdx-js/react": "^3.1.0",
+    "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@ssword/ui": "*",
+    "@tabler/icons-react": "^3.34.0",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",
     "lucide-react": "^0.511.0",
+    "lune": "^0.4.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "tailwind-merge": "^3.3.0",
+    "unist-util-map": "^4.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@mdx-js/mdx": "^3.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -31,8 +45,10 @@
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "sass": "^1.89.0",
+    "shiki": "^3.4.2",
     "tailwind-scrollbar-hide": "^2.0.0",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.0",
     "typescript": "^5"
   }
 }
