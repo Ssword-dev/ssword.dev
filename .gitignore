@@ -33,7 +33,7 @@ pnpm-lock.yaml
 !.yarn/releases
 !.yarn/versions
 
-# lockfiles (only if you're not committing them across packages)
+# lockfiles
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
@@ -44,8 +44,7 @@ yarn.lock
 *.local.*
 **/SECRETS.txt
 
-# coverage (if tests output here)
-coverage/
+**/coverage/
 
 # debug logs
 **/npm-debug.log*
@@ -68,7 +67,7 @@ Thumbs.db
 # vercel deployment files
 .vercel/
 
-# packages/  -- all things we publish
+# packages/  -- all things i publish
 
 # node / ts
 packages/**/node_modules/
@@ -78,6 +77,12 @@ packages/**/lib/
 packages/**/coverage/
 packages/**/tsconfig.tsbuildinfo
 packages/**/.tsbuildinfo
+
+packages/**/.yarn/*
+!packages/**/.yarn/patches
+!packages/**/.yarn/plugins
+!packages/**/.yarn/releases
+!packages/**/.yarn/versions
 
 # dart
 packages/**/.dart_tool/
@@ -103,5 +108,5 @@ packages/**/pip-delete-this-directory.txt
 # instead of listing all "private/local" files
 # we can prepend a .local to their extension
 # e.g. .buildconfig.json would be .buildconfig.local.json
-
+# this may seem convuluted. but... ehh, not really
 *.local.*

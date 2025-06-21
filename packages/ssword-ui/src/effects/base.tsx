@@ -1,4 +1,5 @@
-import { AnimationControls, Transition } from "framer-motion";
+import { Transition } from "framer-motion";
+import { AnimationControls } from "../legacy-types/framer-motion";
 import { ReactNode, RefObject } from "react";
 import { motion } from "framer-motion";
 type PrimitiveReactElement = string | number | bigint | boolean | null;

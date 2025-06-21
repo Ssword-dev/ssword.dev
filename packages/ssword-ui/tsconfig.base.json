@@ -1,6 +1,6 @@
 {
   "$$$developer-remarks": [
-    "Please Do Not put Comments in here, i am requiring this at jest config... will fix later"
+    "Please Do Not put Comments in here, i am requiring this at jest config... will fix later",
   ],
   "compilerOptions": {
     "composite": true,
@@ -34,5 +34,11 @@
         "./src/*"
       ]
     },
+    "plugins": [
+      {
+        "transform": "./decl-fix.js",
+        "beforeDeclarations": true
+      }
+    ]
   }
 }

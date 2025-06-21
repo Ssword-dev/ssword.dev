@@ -105,6 +105,7 @@ const config = ({
             loader: "ts-loader",
             options: {
               configFile: _resolve(import.meta.dirname, "tsconfig.build.json"),
+              compiler: "typescript", // i need this for correction of decl paths because ofcourse we have to serve the types in here...
             },
           },
         ],
@@ -314,85 +315,20 @@ const configWithCodeSplitting = ({
   ],
 });
 
-const configDev = ({ target, entry, outputBasename, directive }) => {
+/**
+ * @returns {webpack.Configuration}
+ */
+const configDev = ({ target, entry, outputBasename, directive, config }) => {
   const baseDir = import.meta.dirname;
-
+  const cfn = config({target, entry, outputBasename, directive, standalone:false});
   return {
-    name: `${outputBasename}.dev`,
-    entry: _resolve(baseDir, entry),
-    stats: "errors-warnings",
-    output: {
-      path: _resolve(baseDir, "dist"),
-      filename: `${outputBasename}.js`,
-      library: {
-        type: "module",
-      },
-      module: true,
-      clean: false,
-    },
-    mode: "development",
-    devtool: "eval-cheap-module-source-map",
-    cache: {
-      type: "filesystem",
-      allowCollectingMemory: true,
-    },
+    ...cfn,
     watch: true,
     watchOptions: {
       aggregateTimeout: 50,
       poll: 100,
       ignored: /node_modules/,
     },
-    target,
-    experiments: {
-      outputModule: true,
-    },
-    externals: function ({ request }, callback) {
-      // mark all external dependencies (from package.json) as external
-      const externals = externalDependenciesRegexes({ standalone: false });
-      if (externals.some((regex) => regex.test(request))) {
-        return callback(null, request);
-      }
-      callback();
-    },
-    externalsType: "module",
-    resolve: {
-      extensions: [".ts", ".tsx", ".js", ".json"],
-      alias: {
-        "@": _resolve(baseDir, "src"),
-      },
-    },
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          use: [
-            {
-              loader: "ts-loader",
-              options: {
-                configFile: _resolve(baseDir, "tsconfig.build.json"),
-                transpileOnly: true,
-              },
-            },
-          ],
-          exclude: /node_modules/,
-        },
-      ],
-    },
-    optimization: {
-      minimize: false,
-    },
-    plugins: [
-      new ForkTsCheckerWebpackPlugin({
-        typescript: {
-          configFile: _resolve(baseDir, "tsconfig.build.json"),
-        },
-      }),
-      new NextDirectivePlugin({ directive }),
-      new EnvPlugin({
-        BUILD_MODE: process.env.BUILD_MODE ?? "dev",
-      }),
-      AmbienceBrokerPlugin.default,
-    ],
   };
 };
 

@@ -1,5 +1,8 @@
 {
   "obfuscate": {
+    "$comments": [
+      "This is for the terser plugin"
+    ],
     "builtins": true,
     "regex": "^__[a-zA-Z_][a-zA-Z0-9_]*"
   },
@@ -9,10 +12,13 @@
       "regex": "^@radix-ui/"
     },
     {
-      "regex": "^(react|react-dom)$"
+      "regex": "^react$"
     },
     {
-      "regex": "^next"
+      "regex": "^react/[a-zA-Z0-9]+$"
+    },
+    {
+      "regex": "^next(/[a-zA-Z0-9]+)?$"
     },
     {
       "regex": "^framer-motion$"

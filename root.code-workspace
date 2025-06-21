@@ -1,18 +1,25 @@
 {
   "folders": [
+    // The site itself
     {
-      "name": "main",
+      "name": "*:main",
       "path": ".",
-      "uri": "file:///${workspaceFolder}",
     },
+    // my packages, currently there is many things here not published...
+    // because they are incomplete like the package `template`
     {
-      "name": "ssword-ui",
-      "path": "packages/ssword-ui"
+      "name": "javascript:@ssword/ui",
+      "path": "./packages/ssword-ui",
     },
-    {
-      "name": "template",
-      "path": "packages/template"
-    }
   ],
-  "settings": {}
+  "settings": {
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "search.exclude": {
+      "**/.yarn": true,
+      "**/.pnp.*": true
+    },
+    "eslint.nodePath": ".yarn/sdks",
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+  }
 }
