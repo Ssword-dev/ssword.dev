@@ -110,3 +110,9 @@ packages/**/pip-delete-this-directory.txt
 # e.g. .buildconfig.json would be .buildconfig.local.json
 # this may seem convuluted. but... ehh, not really
 *.local.*
+
+# Exclusions
+
+# apparently i need this because i havent actually uploaded the package to npm yet
+# so will upload this for now
+!packages/ssword-ui/dist

@@ -1,0 +1,1 @@
+{"version":3,"file":"symbols.d.ts","sourceRoot":"","sources":["../../../src/hooks/symbols.ts"],"names":[],"mappings":"AAAA,QAAA,MAAM,OAAO;;CAEZ,CAAC;AAGF,OAAO,WAAW,OAAO,CAAC;IACxB,KAAY,aAAa,CACvB,CAAC,SAAS,MAAM,EAChB,CAAC,SAAS,MAAM,GAAG,SAAS,GAAG,KAAK,GAAG,IAAI,IACzC,CAAC,GAAG,EAEP,CAAC;CACH;AAED,OAAO,EAAE,OAAO,EAAE,CAAC"}

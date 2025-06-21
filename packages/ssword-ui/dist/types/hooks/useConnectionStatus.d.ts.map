@@ -1,0 +1,1 @@
+{"version":3,"file":"useConnectionStatus.d.ts","sourceRoot":"","sources":["../../../src/hooks/useConnectionStatus.ts"],"names":[],"mappings":"AAEA,KAAK,gBAAgB,GAAG,QAAQ,GAAG,SAAS,GAAG,SAAS,CAAC;AACzD,QAAA,MAAM,mBAAmB,wBAsBxB,CAAC;AAEF,OAAO,EAAE,mBAAmB,EAAE,CAAC"}

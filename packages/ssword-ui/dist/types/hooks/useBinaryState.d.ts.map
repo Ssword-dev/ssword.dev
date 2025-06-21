@@ -1,0 +1,1 @@
+{"version":3,"file":"useBinaryState.d.ts","sourceRoot":"","sources":["../../../src/hooks/useBinaryState.ts"],"names":[],"mappings":"AAEA,UAAU,QAAQ;IAChB,KAAK,EAAE,OAAO,CAAC;IACf,MAAM,IAAI,IAAI,CAAC;CAChB;AAED;;;;GAIG;AACH,QAAA,MAAM,cAAc,GAAI,cAAc,OAAO,KAAG,QAO/C,CAAC;AAEF,OAAO,EAAE,cAAc,EAAE,CAAC;AAC1B,YAAY,EAAE,QAAQ,IAAI,mBAAmB,EAAE,CAAC"}

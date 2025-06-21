@@ -1,0 +1,1 @@
+{"version":3,"file":"layout-preserve.d.ts","sourceRoot":"","sources":["../../../src/effects/layout-preserve.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,OAAO,CAAC;AAErC,UAAU,uBAAuB;IAC/B,MAAM,EAAE,MAAM,CAAC;IACf,KAAK,EAAE,MAAM,CAAC;IACd,QAAQ,EAAE,YAAY,CAAC;CACxB;AAID,QAAA,MAAM,kBAAkB,EAAE,KAAK,CAAC,EAAE,CAAC,uBAAuB,CAkBzD,CAAC;AAIF,eAAe,kBAAkB,CAAC"}
