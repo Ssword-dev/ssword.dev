@@ -28,6 +28,8 @@ import {
 } from "@ssword/ui/client";
 
 import { SidebarOpenIcon, SidebarCloseIcon, ChevronDown } from "lucide-react";
+import { Icon } from "@/app/config";
+import { Frame } from "@ssword/ui/client";
 
 function SiteNavigation() {
   const connection = useConnectionStatus();
@@ -36,7 +38,7 @@ function SiteNavigation() {
   const { open, toggleSidebar } = useSidebar();
 
   return (
-    <Sidebar collapsible="offcanvas" variant="sidebar">
+    <Sidebar collapsible="offcanvas" variant="sidebar" className="fixed">
       <SidebarHeader className="bg-sidebar/95">
         <SidebarGroup>
           <SidebarGroupContent>
@@ -44,7 +46,7 @@ function SiteNavigation() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <span className="flex items-center gap-2">
-                    <span className="text-lg font-bold">🧠</span>
+                    <span className="text-lg font-bold"><Icon /></span>
                     ssword.dev
                   </span>
                   <SidebarMenuBadge>&copy;</SidebarMenuBadge>
@@ -103,12 +105,13 @@ function SiteNavigation() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6 rounded-full">
-                      <AvatarImage src="/icons/localuser.png" />
-                      <AvatarFallback>U</AvatarFallback>
-                    </Avatar>
+              <div className="flex items-center gap-2">
+                    <Frame preset="avatar">
+                      <Avatar className="h-6 w-6 rounded-full">
+                        <AvatarImage src="/icons/localuser.png" />
+                        <AvatarFallback>U</AvatarFallback>
+                      </Avatar>
+                    </Frame>
                     <div className="flex flex-col">
                       <span className="text-sm font-medium">Local User</span>
                       <span className="text-muted-foreground text-xs">
@@ -116,7 +119,6 @@ function SiteNavigation() {
                       </span>
                     </div>
                   </div>
-                </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
@@ -135,7 +137,9 @@ function SiteLayout({ children }: { children: React.ReactNode }) {
       sidebarWidthMobile="16rem"
     >
       <SiteNavigation />
-      <SidebarInset>{children}</SidebarInset>
+      <Frame className="" orientation="portrait">
+        <SidebarInset>{children}</SidebarInset>
+      </Frame>
     </SidebarProvider>
   );
 }

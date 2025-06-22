@@ -1,0 +1,40 @@
+/** Section: variants */
+@custom-variant hover {
+  /**
+   This applies when the user has any way of interacting with an element
+   via hover or touch.
+   this is useful for many many things like ensuring everything works not just
+   on desktop but also on touch screens
+   */
+
+  @media (hover: none) {
+    &:focus {
+      @slot;
+    }
+  }
+
+  @media (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+/**
+Affects the dark:* classes
+makes it so dark:* applies when one of these conditions is true:
+
+  - html or body has .dark
+  - the prefers-color-scheme states dark mode
+*/
+@custom-variant dark {
+  @media (prefers-color-scheme: dark){
+    &{
+      @slot;
+    }
+  }
+
+  :where(html, body).dark &{
+    @slot;
+  }
+}

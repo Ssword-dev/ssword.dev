@@ -1,0 +1,59 @@
+
+@theme thematic-theme-properties {
+  --color-foreground: var(--primary-fg);
+  --color-background: var(--primary-bg);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-bg: var(--primary-bg);
+  --color-secondary-fg: var(--secondary-fg);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-tertiary-fg: var(--tertiary-fg);
+  --color-tertiary-bg: var(--tertiary-bg);
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --text-base-size: var(--base-text-size);
+  --container-base-size: var(--base-container-size);
+  --font-weight-bold: var(--text-style-bold);
+  --text-style-italic: var(--text-style-italic);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+
+@theme thematic-typography {
+  --font-base: sans-serif;
+  --direction-t: to top;
+  --direction-b: to bottom;
+  --direction-l: to left;
+  --direction-r: to right;
+  --direction-tr: to bottom right;
+  --direction-tl: to bottom left;
+  --direction-br: to bottom right;
+  --direction-bl: to bottom left;
+}

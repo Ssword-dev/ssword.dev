@@ -1,0 +1,67 @@
+/**
+A list of intrinsic-styled components (not styled via tailwind)
+*/
+@layer components {
+  /**
+    <Frame orientation="portrait|landscape" preset="video|image" />
+  */
+  div.frame {
+    display: flex;
+  }
+
+  div.frame.preset-video {
+    aspect-ratio: 16/9;
+    background-color: var(--color-muted, #999);
+    border-radius: 7px;
+  }
+
+  div.frame.preset-video > :where(span, video) {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    border-radius: inherit;
+  }
+
+  div.frame.preset-video.portrait {
+    aspect-ratio: 9/16;
+  }
+
+  /** for avatars */
+  div.frame.preset-avatar {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--color-muted, #999);
+
+    /** make sure overflows are not clipping ruining the "avatar" look */
+    overflow: hidden;
+  }
+
+  /**
+  this makes sure only the first <img> is treated as avatar image
+  */
+  div.frame.preset-avatar > img:first-of-type {
+    width: 100%;
+    height: 100%;
+    /** ensure this is not selectable by the user (so they dont try to copy the image) */
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    /** ensure the image is centered */
+    justify-self: center;
+    align-self: center;
+  }
+
+  div.frame.preset-content {
+    /* makes it a scrollable content area */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* optional sizing defaults */
+    max-height: 100%;
+    width: 100%;
+
+    /* optional: muted background for content containers */
+    background-color: var(--color-muted, #999);
+  }
+}

@@ -37,7 +37,6 @@ declare function Sidebar({ side, variant, collapsible, className, children, ...p
     variant?: "sidebar" | "floating" | "inset";
     collapsible?: "offcanvas" | "icon" | "none";
 }): import("react/jsx-runtime").JSX.Element;
-/** TODO: Make the sidebar trigger customizable */
 declare function SidebarTrigger({ className, onClick, children, ...props }: React.ComponentProps<typeof Button>): import("react/jsx-runtime").JSX.Element;
 declare function SidebarRail({ className, ...props }: React.ComponentProps<"button">): import("react/jsx-runtime").JSX.Element;
 declare function SidebarInset({ className, ...props }: React.ComponentProps<"main">): import("react/jsx-runtime").JSX.Element;

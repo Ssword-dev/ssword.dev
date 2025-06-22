@@ -1,0 +1,105 @@
+@layer base{
+  :root{
+    color-scheme: light dark;
+  }
+
+  body {
+    /** Flex for easier layout design */
+    display: flex;
+    /** Always make sure direct children of body goes from up to bottom */
+    flex-direction: column;
+    /** Clamp height */
+    min-height: 100vh;
+    /** Always take up the entire width the browser lets us to */
+    width: 100vw;
+    /** Hide clippings, and disable scroll through x */
+    overflow-x: hidden;
+    /** Enable scrolling the body vertically */
+    overflow-y: scroll;
+    /** Remove margin-and-padding-on-the-body weirdness */
+    margin: 0;
+    padding: 0;
+  }
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  p,
+  a,
+  abbr,
+  b,
+  bdi,
+  bdo,
+  br,
+  cite,
+  code,
+  data,
+  dfn,
+  em,
+  i,
+  kbd,
+  mark,
+  q,
+  rp,
+  rt,
+  ruby,
+  s,
+  samp,
+  small,
+  strong,
+  sub,
+  sup,
+  time,
+  u,
+  var,
+  [data-explicit-level="inline"]
+  ):not([data-explicit-level="block"]) {
+    font-family: var(--font-head, sans-serif);
+  }
+
+  :where(
+      address,
+      article,
+      aside,
+      blockquote,
+      details,
+      dialog,
+      dd,
+      div,
+      dl,
+      dt,
+      fieldset,
+      figcaption,
+      figure,
+      footer,
+      form,
+      header,
+      hgroup,
+      li,
+      main,
+      nav,
+      ol,
+      pre,
+      section,
+      table,
+      ul,
+      [data-explicit-level="block"]
+    ):not([data-explicit-level="inline"]) {
+    font-family: var(--font-base, sans-serif);
+  }
+
+  code:not([data-explicit-code-exclusion]),
+  [data-explicit-code]:not([data-explicit-code-exclusion]) {
+    font-family: var(--font-code, monospace);
+  }
+
+  :where(a, [data-explicit-link])
+    :not([data-explicit-link-exclusion])
+    :where(:hover, :focus-within) {
+    color: var(--color-accent, calc(initial * 120%));
+  }
+}
